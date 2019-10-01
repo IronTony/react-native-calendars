@@ -40,8 +40,12 @@ export default function styleConstructor(theme = {}) {
     },
     reservations: {
       flex: 1,
-      marginTop: 104,
+      // marginTop: 104,
+      marginTop: 60,
       backgroundColor: appStyle.backgroundColor
+    },
+    headerMonthStyle: {
+      fontSize: 20,
     },
     ...(theme[STYLESHEET_ID] || {})
   });
