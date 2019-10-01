@@ -91,6 +91,7 @@ export default class AgendaView extends Component {
     // Display loading indicador. Default = false
     displayLoadingIndicator: PropTypes.bool,
     isDefaultViewCalendar: PropTypes.any,
+    dynamicHeight: PropTypes.bool,
   };
 
   constructor(props) {
@@ -431,6 +432,7 @@ export default class AgendaView extends Component {
               displayLoadingIndicator={this.props.displayLoadingIndicator}
               showWeekNumbers={this.props.showWeekNumbers}
               calendarHeight={this.props.calendarHeight}
+              dynamicHeight={this.props.dynamicHeight}
             />
           </Animated.View>
           {knob}
