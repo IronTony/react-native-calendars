@@ -37,15 +37,16 @@ class ReservationListItem extends Component {
     }
     const today = dateutils.sameDate(date, XDate()) ? this.styles.today : undefined;
     if (date) {
+      const shortDayName = XDate.locales[XDate.defaultLocale].dayNamesShortExt ? XDate.locales[XDate.defaultLocale].dayNamesShortExt[date.getDay()] : XDate.locales[XDate.defaultLocale].dayNamesShort[date.getDay()];
       return (
         <View style={this.styles.day}>
           <Text allowFontScaling={false} style={[this.styles.dayNum, today]}>{date.getDate()}</Text>
-          <Text allowFontScaling={false} style={[this.styles.dayText, today]}>{XDate.locales[XDate.defaultLocale].dayNamesShort[date.getDay()]}</Text>
+          <Text allowFontScaling={false} style={[this.styles.dayText, today]}>{shortDayName}</Text>
         </View>
       );
     } else {
       return (
-        <View style={this.styles.day}/>
+        <View style={this.styles.day} />
       );
     }
   }
