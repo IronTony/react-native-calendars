@@ -7,7 +7,8 @@ export default function styleConstructor(theme = {}) {
   const appStyle = {...defaultStyle, ...theme};
   return  StyleSheet.create({
     container: {
-      flexDirection: 'row'
+      flexDirection: 'row',
+      marginTop: 70,
     },
     dayNum: {
       fontSize: 28,

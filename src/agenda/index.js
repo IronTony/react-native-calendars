@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import XDate from 'xdate';
-import moment from 'moment';
 
 import {parseDate, xdateToData} from '../interface';
 import dateutils from '../dateutils';
@@ -17,7 +16,7 @@ import ReservationsList from './reservation-list';
 import styleConstructor from './style';
 import { VelocityTracker } from '../input';
 
-const HEADER_HEIGHT = 60;
+const HEADER_HEIGHT = 130;
 const KNOB_HEIGHT = 24;
 
 //Fallback when RN version is < 0.44
@@ -92,6 +91,7 @@ export default class AgendaView extends Component {
     displayLoadingIndicator: PropTypes.bool,
     isDefaultViewCalendar: PropTypes.any,
     dynamicHeight: PropTypes.bool,
+    customHeaderAgendaOpen: PropTypes.element,
   };
 
   constructor(props) {
@@ -438,14 +438,18 @@ export default class AgendaView extends Component {
           {knob}
         </Animated.View>
         <Animated.View style={weekdaysStyle}>
-          {/* {this.props.showWeekNumbers && <Text allowFontScaling={false} style={this.styles.weekday} numberOfLines={1}></Text>}
-          {weekDaysNames.map((day, index) => (
+        {
+            this.props.customHeaderAgendaOpen ? this.props.customHeaderAgendaOpen : <Text style={this.props.headerCustomStyle || this.styles.headerMonthStyle}>{monthLiteral}</Text>
+        }
+
+          {/* {this.props.showWeekNumbers && <Text allowFontScaling={false} style={this.styles.weekday} numberOfLines={1}></Text>} */}
+          {/* {weekDaysNames.map((day, index) => (
             <Text allowFontScaling={false} key={day+index} style={this.styles.weekday} numberOfLines={1}>{day}</Text>
           ))} */}
-          {
+          {/* {
             this.props.showHeaderMonth &&
             <Text style={this.props.headerCustomStyle || this.styles.headerMonthStyle}>{monthLiteral}</Text>
-          }
+          } */}
         </Animated.View>
         <Animated.ScrollView
           ref={c => this.scrollPad = c}
