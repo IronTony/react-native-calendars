@@ -190,7 +190,7 @@ class ReactComp extends Component {
     return (
       <FlatList
         ref={(c) => this.list = c}
-        style={[this.props.style]}
+        style={[this.props.style, { marginTop: 70 }]}
         contentContainerStyle={this.styles.content}
         renderItem={this.renderRow.bind(this)}
         data={this.state.reservations}
